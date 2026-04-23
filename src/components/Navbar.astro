@@ -1,0 +1,208 @@
+---
+const pathname = Astro.url.pathname;
+const isEn = pathname.startsWith('/en');
+
+// Ajustar rutas según idioma actual
+const langPrefix = isEn ? '/en' : '';
+const links = [
+  { href: `${langPrefix}/`, label: isEn ? "Home" : "Inicio" },
+  { href: `${langPrefix}/mansiones`, label: isEn ? "Luxury Mansions" : "Renta de Mansiones" },
+  { href: `${langPrefix}/vehiculos`, label: isEn ? "High-end Vehicles" : "Vehículos de Alta Gama" },
+  { href: `${langPrefix}/yates`, label: isEn ? "Yachts" : "Yates" },
+  { href: `${langPrefix}/experiencias`, label: isEn ? "Experiences" : "Experiencias" },
+];
+---
+
+<nav class="navbar" id="main-nav">
+  <div class="container navbar__inner">
+    <a href={`${langPrefix}/`} aria-label="Luxury Travel Home" class="navbar__logo">
+      <img src="/brand/logo-wide.png" alt="Luxury Travel Home" width="140" height="30" />
+    </a>
+
+    <div class="navbar__links">
+      {links.map((l) => (
+        <a href={l.href} class="nav-link">{l.label}</a>
+      ))}
+    </div>
+
+    <div class="navbar__actions">
+      <div class="lang-switch">
+        <a href="/" class={isEn ? "lang-link" : "lang-active"}>ES</a>
+        <span class="lang-sep">|</span>
+        <a href="/en" class={isEn ? "lang-active" : "lang-link"}>EN</a>
+      </div>
+      <a
+        href="https://wa.me/573217927739"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn--gold btn--sm navbar__cta"
+      >
+        {isEn ? "Contact" : "Contactar"}
+      </a>
+      <button class="navbar__hamburger" aria-label={isEn ? "Open menu" : "Abrir menú"} id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span class="short"></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-menu__close" aria-label={isEn ? "Close menu" : "Cerrar menú"} id="menu-close">&times;</button>
+  {links.map((l) => (
+    <a href={l.href}>{l.label}</a>
+  ))}
+  <a
+    href="https://wa.me/573217927739"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="btn btn--whatsapp mt-4"
+  >
+    WhatsApp
+  </a>
+</div>
+
+<style>
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background: rgba(5, 5, 5, 0.6);
+    border-bottom: 1px solid transparent;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition: background 0.35s ease, border-color 0.35s ease;
+  }
+
+  .navbar.scrolled {
+    background: rgba(5, 5, 5, 0.97);
+    border-bottom-color: var(--border);
+  }
+
+  .navbar__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 5rem;
+  }
+
+  .navbar__logo img {
+    width: 6rem;
+    height: auto;
+  }
+
+  @media (min-width: 768px) {
+    .navbar__logo img { width: 8rem; }
+  }
+
+  .navbar__links {
+    display: none;
+    align-items: center;
+    gap: 1.75rem;
+  }
+
+  @media (min-width: 1024px) {
+    .navbar__links { display: flex; }
+  }
+
+  .navbar__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .navbar__cta { display: none; }
+  
+  .lang-switch {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-right: 0.5rem;
+    font-family: var(--font-body);
+  }
+  .lang-active {
+    color: var(--gold);
+    pointer-events: none;
+  }
+  .lang-link {
+    color: var(--fg-muted);
+    transition: color 0.2s ease;
+  }
+  .lang-link:hover {
+    color: var(--fg);
+  }
+  .lang-sep {
+    color: var(--border);
+  }
+
+  @media (min-width: 768px) {
+    .navbar__cta { display: inline-flex; }
+  }
+
+  .navbar__hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  @media (min-width: 1024px) {
+    .navbar__hamburger { display: none; }
+  }
+
+  .navbar__hamburger span {
+    display: block;
+    width: 1.5rem;
+    height: 1px;
+    background: var(--gold);
+    transition: all 0.25s ease;
+  }
+
+  .navbar__hamburger span.short {
+    width: 1rem;
+    align-self: flex-end;
+  }
+
+  .mobile-menu__close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--fg-muted);
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+  }
+</style>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  const toggle = document.getElementById('menu-toggle');
+  const close = document.getElementById('menu-close');
+  const menu = document.getElementById('mobile-menu');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      nav?.classList.add('scrolled');
+    } else {
+      nav?.classList.remove('scrolled');
+    }
+  });
+
+  toggle?.addEventListener('click', () => menu?.classList.add('open'));
+  close?.addEventListener('click', () => menu?.classList.remove('open'));
+
+  menu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => menu?.classList.remove('open'));
+  });
+</script>

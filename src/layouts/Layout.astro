@@ -1,0 +1,110 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Luxury Travel Home — Experimenta El Lujo Sin Límites",
+  description = "Luxury Travel Home, Vive una experiencia de lujo sin límites, en cada viaje. Somos tu mejor aliado. Mansiones, yates, vehículos de alta gama y tours exclusivos en Medellín.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="casas de lujo en medellín, mansiones de lujo alquiler, yates de lujo colombia, vehículos alta gama medellín, tours exclusivos medellín, luxury travel home, renta mansiones lujo, despedida de soltera lujo" />
+    <meta name="author" content="Luxury Travel Home" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_CO" />
+    <meta property="og:url" content="https://luxurytravelhome.co" />
+    <meta property="og:site_name" content="Luxury Travel Home" />
+    <meta property="og:title" content="Luxury Travel Home — Experimenta El Lujo Sin Límites" />
+    <meta property="og:description" content="Mansiones de lujo, yates, vehículos de alta gama y tours exclusivos en Medellín, Colombia." />
+    <meta property="og:image" content="/brand/logo-wide.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Luxury Travel Home — Experimenta El Lujo Sin Límites" />
+    <meta name="twitter:description" content="Vive una experiencia de lujo sin límites en cada viaje. Medellín, Colombia." />
+
+    <!-- Schema.org -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Hotel",
+          "@id": "https://luxurytravelhome.co/#hotel",
+          name: "Luxury Travel Home",
+          url: "https://luxurytravelhome.co",
+          logo: "https://luxurytravelhome.co/brand/Logo-luxury-nuevo.png",
+          image: "https://luxurytravelhome.co/brand/Logo-luxury-nuevo.png",
+          description: "Luxury Travel Home, Vive una experiencia de lujo sin límites, en cada viaje.",
+          priceRange: "$$$",
+          email: "info@luxurytravelhome.co",
+          telephone: "+573217927739",
+          address: { "@type": "PostalAddress", addressLocality: "Medellín", addressCountry: "CO" },
+          openingHoursSpecification: {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+            opens: "09:00",
+            closes: "17:00",
+          },
+          sameAs: [
+            "https://www.instagram.com/luxurytravelhomerentals/",
+            "https://www.airbnb.com.co/users/show/427110649",
+          ],
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://luxurytravelhome.co/#org",
+          name: "Luxury Travel Home",
+          url: "https://luxurytravelhome.co",
+          logo: "https://luxurytravelhome.co/brand/Logo-luxury-nuevo.png",
+          taxID: "79391",
+          contactPoint: {
+            "@type": "ContactPoint",
+            telephone: "+573217927739",
+            contactType: "customer service",
+            availableLanguage: "Spanish",
+          },
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://luxurytravelhome.co/#website",
+          url: "https://luxurytravelhome.co",
+          name: "Luxury Travel Home",
+          description: "Experimenta El Lujo Sin Límites",
+          inLanguage: "es",
+        },
+      ],
+    })} />
+  </head>
+  <body>
+    <slot />
+
+    <!-- Scroll reveal observer -->
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+      );
+
+      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,365 @@
+/* ═══════════════════════════════════════════════════════
+   LUXURY TRAVEL HOME — Astro Design System
+   Premium dark aesthetic with gold accents
+═══════════════════════════════════════════════════════ */
+
+/* ── Google Fonts ──────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Mulish:wght@300;400;500;600;700;800&display=swap');
+
+/* ── Tokens ────────────────────────────────────────── */
+:root {
+  --gold:          #c9a84c;
+  --gold-bright:   #e8c96a;
+  --gold-dim:      #8a6e2e;
+  --gold-glow:     rgba(201, 168, 76, 0.15);
+
+  --bg-deepest:    #050505;
+  --bg-base:       #0a0a09;
+  --bg-elevated:   #111110;
+  --bg-card:       #131312;
+  --bg-high:       #1a1917;
+
+  --fg:            #f0ede8;
+  --fg-muted:      #9a9690;
+  --fg-dim:        #5a5650;
+
+  --border:        #1e1c19;
+  --border-gold:   rgba(201, 168, 76, 0.3);
+
+  --font-heading:  'Cormorant Garamond', serif;
+  --font-body:     'Mulish', sans-serif;
+
+  --radius-sm:     0.35rem;
+  --radius-md:     0.75rem;
+  --radius-lg:     1rem;
+  --radius-xl:     1.25rem;
+
+  --ease-out:      cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-smooth:   cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Reset ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+body {
+  background: var(--bg-deepest);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+
+/* ── Scrollbar ─────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg-deepest); }
+::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 3px; }
+
+/* ── Typography ────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  color: var(--fg);
+}
+
+h1 { font-size: clamp(2.6rem, 6.5vw, 5.5rem); }
+h2 { font-size: clamp(2rem, 4.5vw, 3.8rem); }
+h3 { font-size: clamp(1.25rem, 2.5vw, 1.8rem); }
+
+p { line-height: 1.8; color: var(--fg-muted); }
+
+/* ── Layout ────────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: 1320px;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 3rem);
+}
+
+.section {
+  padding-block: clamp(4rem, 10vw, 8rem);
+  position: relative;
+}
+
+.section--alt { background: var(--bg-elevated); }
+.section--sm { padding-block: clamp(2.5rem, 6vw, 4.5rem); }
+
+/* ── Label / overline ──────────────────────────────── */
+.overline {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: inline-block;
+}
+
+/* ── Decorative line ───────────────────────────────── */
+.accent-line {
+  width: 3rem;
+  height: 1px;
+  background: var(--gold);
+  margin-block: 1.25rem;
+}
+.accent-line--center { margin-inline: auto; }
+
+/* ── Buttons ───────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.8rem 2rem;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-smooth);
+  text-decoration: none;
+  line-height: 1;
+}
+
+.btn--gold {
+  background: var(--gold);
+  color: #1a1200;
+  border-color: var(--gold);
+}
+.btn--gold:hover {
+  background: var(--gold-bright);
+  box-shadow: 0 4px 30px rgba(201, 168, 76, 0.35);
+  transform: translateY(-2px);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--gold);
+  border-color: var(--gold);
+}
+.btn--outline:hover {
+  background: var(--gold);
+  color: #1a1200;
+}
+
+.btn--whatsapp {
+  background: #25D366;
+  color: #fff;
+  border-color: #25D366;
+}
+.btn--whatsapp:hover {
+  background: #1ebe5a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+}
+
+.btn--sm { padding: 0.55rem 1.2rem; font-size: 0.62rem; }
+
+/* ── Cards ─────────────────────────────────────────── */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color 0.4s ease, transform 0.4s var(--ease-out), box-shadow 0.4s ease;
+}
+
+.card:hover {
+  border-color: var(--border-gold);
+  transform: translateY(-6px);
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, 0.55),
+    0 0 0 1px var(--border-gold);
+}
+
+.card__img {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+}
+
+.card__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.card:hover .card__img img { transform: scale(1.05); }
+
+.card__img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.08) 60%, transparent 100%);
+}
+
+.card__body { padding: 1.5rem; }
+
+/* ── Nav ───────────────────────────────────────────── */
+.nav-link {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s var(--ease-out);
+}
+
+.nav-link:hover { color: var(--gold); }
+.nav-link:hover::after { transform: scaleX(1); }
+
+/* ── Gold shimmer text ─────────────────────────────── */
+@keyframes goldShimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.gold-shimmer {
+  background: linear-gradient(90deg, var(--gold) 0%, #fff8dc 40%, var(--gold) 80%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldShimmer 4s linear infinite;
+}
+
+/* ── Fade-up ───────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up { animation: fadeUp 0.9s var(--ease-out) both; }
+.fade-up-1 { animation: fadeUp 0.9s var(--ease-out) 0.15s both; }
+.fade-up-2 { animation: fadeUp 0.9s var(--ease-out) 0.3s both; }
+.fade-up-3 { animation: fadeUp 0.9s var(--ease-out) 0.45s both; }
+
+/* ── Scroll reveal (JS intersection observer) ──────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Grid helpers ──────────────────────────────────── */
+.grid-2 { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+.grid-4 { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+
+@media (min-width: 640px) {
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .grid-2 { gap: 4rem; }
+  .grid-4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ── WhatsApp Float ────────────────────────────────── */
+.wa-float {
+  position: fixed;
+  bottom: 1.75rem;
+  right: 1.75rem;
+  z-index: 999;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background: #25D366;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  box-shadow: 0 4px 24px rgba(37, 211, 102, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeUp 1s 1.5s var(--ease-out) both;
+}
+.wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 32px rgba(37, 211, 102, 0.55); }
+.wa-float svg { width: 1.6rem; height: 1.6rem; fill: #fff; }
+
+/* ── Mobile menu ───────────────────────────────────── */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 700;
+  background: var(--bg-deepest);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+.mobile-menu.open { opacity: 1; pointer-events: all; }
+.mobile-menu a {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--fg-muted);
+  transition: color 0.2s ease;
+}
+.mobile-menu a:hover { color: var(--gold); }
+
+/* ── Utility ───────────────────────────────────────── */
+.text-center { text-align: center; }
+.text-gold { color: var(--gold); }
+.text-muted { color: var(--fg-muted); }
+.text-sm { font-size: 0.875rem; }
+.text-xs { font-size: 0.75rem; }
+.text-lg { font-size: 1.125rem; }
+.mx-auto { margin-inline: auto; }
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: 0.25rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-3 { margin-bottom: 0.75rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-6 { margin-bottom: 1.5rem; }
+.mb-8 { margin-bottom: 2rem; }
+.mb-12 { margin-bottom: 3rem; }
+.mb-16 { margin-bottom: 4rem; }
+.mt-4 { margin-top: 1rem; }
+.mt-6 { margin-top: 1.5rem; }
+.mt-8 { margin-top: 2rem; }
+.mt-12 { margin-top: 3rem; }
+.pt-6 { padding-top: 1.5rem; }
+.pt-8 { padding-top: 2rem; }
+.gap-4 { gap: 1rem; }
+.gap-6 { gap: 1.5rem; }
+.max-w-lg { max-width: 32rem; }
+.max-w-xl { max-width: 36rem; }
+.max-w-2xl { max-width: 42rem; }
+.max-w-sm { max-width: 24rem; }
+.leading-loose { line-height: 2; }
+.leading-relaxed { line-height: 1.85; }
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.border-top { border-top: 1px solid var(--border); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
