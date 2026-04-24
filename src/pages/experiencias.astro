@@ -1,9 +1,9 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/Navbar.astro';
-import Footer from '../components/Footer.astro';
-import WhatsAppFloat from '../components/WhatsAppFloat.astro';
-import '../styles/global.css';
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import WhatsAppFloat from "../components/WhatsAppFloat.astro";
+import "../styles/global.css";
 
 const EXPERIENCIAS = [
   {
@@ -11,36 +11,59 @@ const EXPERIENCIAS = [
     desc: "Sobrevuela Medellín y admira la ciudad y sus montañas desde el cielo con total privacidad y estilo. Una perspectiva única que pocas personas experimentan.",
     duration: "Personalizado",
     group: "Hasta 5 personas",
-    includes: ["Vuelo panorámico exclusivo", "Piloto experto certificado", "Servicio VIP a bordo"],
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M3 12L7 8m-4 4l4 4"/><path d="M21 12l-2-6h-4l-1 6"/><path d="M15 12v6l-3 1.5L9 18v-6"/><circle cx="19" cy="12" r="1"/></svg>`,
+    includes: [
+      "Vuelo panorámico exclusivo",
+      "Piloto experto certificado",
+      "Servicio VIP a bordo",
+    ],
+    icon: `<img src="https://www.svgrepo.com/show/20347/flying-helicopter.svg" alt="Icono helicoptero" loading="lazy" />`,
     num: "01",
+    image:
+      "https://images.pexels.com/photos/30132648/pexels-photo-30132648.jpeg",
   },
   {
     name: "Alquiler de Jet Privado",
     desc: "Vuelos chárter exclusivos para viajes de negocios o placer. Confort absoluto, privacidad total y flexibilidad de rutas nacionales e internacionales.",
     duration: "Personalizado",
     group: "A medida",
-    includes: ["Rutas nacionales e internacionales", "Tripulación privada dedicada", "Catering gourmet exclusivo"],
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16l-3-8-9 4-3-2-3 1 3 3-2 6 3-1 1-3 3 2 2 3 3-1-1-4z"/></svg>`,
+    includes: [
+      "Rutas nacionales e internacionales",
+      "Tripulación privada dedicada",
+      "Catering gourmet exclusivo",
+    ],
+    icon: `<img src="https://www.svgrepo.com/show/326465/airplane-outline.svg" alt="Icono avion" loading="lazy" />`,
     num: "02",
+    image: "https://images.unsplash.com/photo-1619651565830-892ccdb2bd51?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     name: "City Tour VIP",
     desc: "Recorre los mejores rincones de Medellín en vehículo privado de lujo con guía especializado bilingüe. Acceso preferencial y atención personalizada en cada parada.",
     duration: "6 horas",
     group: "Hasta 8 personas",
-    includes: ["Vehículo de lujo con conductor", "Guía bilingüe certificado", "Acceso preferencial a sitios"],
+    includes: [
+      "Vehículo de lujo con conductor",
+      "Guía bilingüe certificado",
+      "Acceso preferencial a sitios",
+    ],
     icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>`,
     num: "03",
+    image:
+      "https://images.pexels.com/photos/27825960/pexels-photo-27825960.jpeg",
   },
   {
-    name: "Tour Naturaleza y Café",
-    desc: "Excursión a las montañas de Antioquia, fincas cafeteras y paisajes naturales únicos. Conecta con la cultura cafetera en un entorno espectacular.",
-    duration: "8 horas",
-    group: "Hasta 8 personas",
-    includes: ["Transporte privado de lujo", "Degustación de café premium", "Experiencia cultural local"],
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>`,
+    name: "Lifestyle Cinema y Videoclips",
+    desc: "Producción audiovisual premium para capturar tu experiencia: videoclips, sesiones lifestyle y piezas cinematográficas con dirección creativa de alto nivel.",
+    duration: "Jornada completa",
+    group: "Individual o grupos",
+    includes: [
+      "Dirección creativa",
+      "Filmación con equipo pro",
+      "Edición y entrega final",
+    ],
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M10 10l5 2-5 2v-4z"/></svg>`,
     num: "04",
+    image:
+      "https://images.pexels.com/photos/32535764/pexels-photo-32535764.jpeg",
   },
 ];
 
@@ -52,33 +75,48 @@ const STATS = [
 ];
 ---
 
-<Layout title="Experiencias Exclusivas - Luxury Travel Home" description="Vive experiencias únicas en Medellín y Colombia: vuelos en helicóptero, jets privados y tours VIP.">
+<Layout
+  title="Experiencias Exclusivas - Luxury Travel Home"
+  description="Vive experiencias únicas en Medellín y Colombia: vuelos en helicóptero, jets privados y tours VIP."
+>
   <Navbar />
   <WhatsAppFloat />
 
   <!-- HERO -->
   <header class="page-hero">
-    <div class="page-hero__bg"><img src="/services/tour.png" alt="Experiencias VIP Medellín" loading="eager" /></div>
+    <div class="page-hero__bg">
+      <img
+        src="/services/tour.png"
+        alt="Experiencias VIP Medellín"
+        loading="eager"
+      />
+    </div>
     <div class="page-hero__overlay"></div>
     <div class="container page-hero__content">
       <p class="overline fade-up mb-4">Experiencias a otro nivel</p>
-      <h1 class="fade-up-1 mb-4">Experiencias<br /><span class="gold-shimmer">Exclusivas</span></h1>
-      <p class="page-hero__sub fade-up-2">Diseñamos cada momento para que supere cualquier expectativa.<br />Privacidad, lujo y aventura - todo en uno.</p>
+      <h1 class="fade-up-1 mb-4">
+        Experiencias<br /><span class="gold-shimmer">Exclusivas</span>
+      </h1>
+      <p class="page-hero__sub fade-up-2">
+        Experiencias diseñadas como obras a medida: lujo, privacidad y narrativa
+        visual en cada detalle.
+      </p>
     </div>
   </header>
 
   <main>
-
     <!-- STATS BAR -->
     <section class="stats-bar section--sm">
       <div class="container">
         <div class="stats-grid">
-          {STATS.map((s) => (
-            <div class="stat-item">
-              <span class="stat-value">{s.value}</span>
-              <span class="stat-label">{s.label}</span>
-            </div>
-          ))}
+          {
+            STATS.map((s) => (
+              <div class="stat-item">
+                <span class="stat-value">{s.value}</span>
+                <span class="stat-label">{s.label}</span>
+              </div>
+            ))
+          }
         </div>
       </div>
     </section>
@@ -90,17 +128,77 @@ const STATS = [
           <p class="overline mb-3">Servicios Premium</p>
           <h2>El mundo a tu alcance</h2>
           <div class="accent-line"></div>
-          <p class="text-sm leading-relaxed mb-4">Ofrecemos un portafolio de experiencias que redefinen el lujo. Ya sea cruzando los cielos en nuestras aeronaves privadas o explorando los rincones más exclusivos de la región, cada momento está diseñado para superar tus expectativas.</p>
-          <p class="text-sm leading-relaxed mb-6" style="color:var(--fg-muted);">Cada experiencia es completamente personalizable. Cuéntanos tu visión y la haremos realidad con los más altos estándares de calidad y discreción.</p>
-          <a href="https://wa.me/573217927739?text=Hola,%20me%20interesa%20reservar%20una%20experiencia%20VIP" target="_blank" rel="noopener noreferrer" class="btn btn--gold">Consultar disponibilidad</a>
+          <p class="text-sm leading-relaxed mb-4">
+            Ofrecemos un portafolio de experiencias que redefinen el lujo. Ya
+            sea cruzando los cielos en nuestras aeronaves privadas o explorando
+            los rincones más exclusivos de la región, cada momento está diseñado
+            para superar tus expectativas.
+          </p>
+          <p
+            class="text-sm leading-relaxed mb-6"
+            style="color:var(--fg-muted);"
+          >
+            Cada experiencia es completamente personalizable. Cuéntanos tu
+            visión y la haremos realidad con los más altos estándares de calidad
+            y discreción.
+          </p>
+          <a
+            href="https://wa.me/573217927739?text=Hola,%20me%20interesa%20reservar%20una%20experiencia%20VIP"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn--gold">Consultar disponibilidad</a
+          >
         </div>
         <div class="intro-img">
           <img src="/services/tour.png" alt="Experiencia VIP" loading="lazy" />
           <div class="intro-img__badge">
-            <span class="overline" style="font-size:0.52rem;">Solo para ti</span>
-            <p style="font-size:0.8rem; font-weight:600; color:var(--fg); margin:0;">Experiencias a medida</p>
+            <span class="overline" style="font-size:0.52rem;">Solo para ti</span
+            >
+            <p
+              style="font-size:0.8rem; font-weight:600; color:var(--fg); margin:0;"
+            >
+              Experiencias a medida
+            </p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- VISUAL MOSAIC -->
+    <section class="section container section--sm">
+      <div class="mosaic-head text-center reveal">
+        <p class="overline mb-3">Dirección Visual</p>
+        <h2>Storyboard de tu experiencia</h2>
+        <div class="accent-line accent-line--center"></div>
+      </div>
+      <div class="exp-mosaic reveal">
+        <article class="mosaic-slot mosaic-slot--main">
+          <span class="mosaic-slot__chip">Hero</span>
+          <img
+            src="https://images.pexels.com/photos/30132648/pexels-photo-30132648.jpeg"
+            alt="Vista hero de experiencia en helicoptero"
+            loading="lazy"
+          />
+          <p>Vuelo en helicoptero</p>
+        </article>
+        <article class="mosaic-slot">
+          <span class="mosaic-slot__chip">Detalle</span>
+          <img
+            src="https://images.pexels.com/photos/27825960/pexels-photo-27825960.jpeg"
+            alt="City tour VIP"
+            loading="lazy"
+          />
+          <p>City Tour VIP</p>
+        </article>
+        <article class="mosaic-slot">
+          <span class="mosaic-slot__chip">Behind the scenes</span>
+          <img
+            src="https://images.pexels.com/photos/32535764/pexels-photo-32535764.jpeg"
+            alt="Produccion audiovisual lifestyle cinema"
+            loading="lazy"
+          />
+          <p>Lifestyle Cinema</p>
+        </article>
       </div>
     </section>
 
@@ -111,46 +209,71 @@ const STATS = [
           <p class="overline mb-3">Portafolio</p>
           <h2>Nuestras Experiencias</h2>
           <div class="accent-line accent-line--center"></div>
-          <p class="text-sm max-w-xl mx-auto mt-4" style="color:var(--fg-muted); line-height:1.85;">
-            Cuatro experiencias únicas diseñadas para quienes exigen lo mejor. Cada detalle, cuidadosamente orquestado.
+          <p
+            class="text-sm max-w-xl mx-auto mt-4"
+            style="color:var(--fg-muted); line-height:1.85;"
+          >
+            Cuatro experiencias únicas diseñadas para quienes exigen lo mejor.
+            Cada detalle, cuidadosamente orquestado.
           </p>
         </div>
 
         <div class="exp-grid">
-          {EXPERIENCIAS.map((t) => (
-            <div class="exp-card reveal">
-              <div class="exp-card__num">{t.num}</div>
-              <div class="exp-card__icon" set:html={t.icon} />
-              <h3 class="exp-card__name">{t.name}</h3>
-              <p class="exp-card__desc">{t.desc}</p>
-              <div class="exp-card__meta">
-                <div class="meta-pill">
-                  <span class="meta-pill__lbl">Duración</span>
-                  <span class="meta-pill__val">{t.duration}</span>
+          {
+            EXPERIENCIAS.map((t) => (
+              <div class="exp-card reveal">
+                <div class="exp-card__media">
+                  <span class="exp-card__media-tag">Experiencia</span>
+                  <img src={t.image} alt={`Foto de ${t.name}`} loading="lazy" />
                 </div>
-                <div class="meta-pill">
-                  <span class="meta-pill__lbl">Capacidad</span>
-                  <span class="meta-pill__val">{t.group}</span>
+                <div class="exp-card__num">{t.num}</div>
+                <div class="exp-card__icon" set:html={t.icon} />
+                <h3 class="exp-card__name">{t.name}</h3>
+                <p class="exp-card__desc">{t.desc}</p>
+                <div class="exp-card__meta">
+                  <div class="meta-pill">
+                    <span class="meta-pill__lbl">Duración</span>
+                    <span class="meta-pill__val">{t.duration}</span>
+                  </div>
+                  <div class="meta-pill">
+                    <span class="meta-pill__lbl">Capacidad</span>
+                    <span class="meta-pill__val">{t.group}</span>
+                  </div>
                 </div>
+                <ul class="exp-card__includes">
+                  {t.includes.map((inc) => (
+                    <li>
+                      <svg class="inc-icon" viewBox="0 0 12 12" fill="none">
+                        <circle
+                          cx="6"
+                          cy="6"
+                          r="5"
+                          stroke="currentColor"
+                          stroke-width="1"
+                        />
+                        <path
+                          d="M3.5 6l1.8 1.8L8.5 4.5"
+                          stroke="currentColor"
+                          stroke-width="1.2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                      <span>{inc}</span>
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href={`https://wa.me/573217927739?text=Hola,%20quiero%20información%20sobre%20${t.name}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="exp-card__cta btn btn--outline btn--sm"
+                >
+                  Solicitar información
+                </a>
               </div>
-              <ul class="exp-card__includes">
-                {t.includes.map((inc) => (
-                  <li>
-                    <svg class="inc-icon" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1"/><path d="M3.5 6l1.8 1.8L8.5 4.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    <span>{inc}</span>
-                  </li>
-                ))}
-              </ul>
-              <a
-                href={`https://wa.me/573217927739?text=Hola,%20quiero%20información%20sobre%20${t.name}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="exp-card__cta btn btn--outline btn--sm"
-              >
-                Solicitar información
-              </a>
-            </div>
-          ))}
+            ))
+          }
         </div>
       </div>
     </section>
@@ -164,10 +287,23 @@ const STATS = [
           <h2 class="mb-4">Diseñamos la aventura<br />perfecta para ti</h2>
           <div class="accent-line accent-line--center"></div>
           <p class="text-sm leading-relaxed max-w-lg mx-auto mb-8">
-            Contáctanos y cuéntanos qué deseas vivir. Nuestro equipo creará un itinerario exclusivo con la privacidad y el lujo que mereces.
+            Contáctanos y cuéntanos qué deseas vivir. Nuestro equipo creará un
+            itinerario exclusivo con la privacidad y el lujo que mereces.
           </p>
-          <a href="https://wa.me/573217927739?text=Hola,%20quiero%20diseñar%20una%20experiencia%20VIP" target="_blank" rel="noopener noreferrer" class="btn btn--whatsapp">
-            <svg viewBox="0 0 24 24" fill="currentColor" style="width:0.95rem;height:0.95rem;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <a
+            href="https://wa.me/573217927739?text=Hola,%20quiero%20diseñar%20una%20experiencia%20VIP"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn--whatsapp"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              style="width:0.95rem;height:0.95rem;"
+              ><path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+              ></path></svg
+            >
             Contactar por WhatsApp
           </a>
         </div>
@@ -180,158 +316,438 @@ const STATS = [
 
 <style>
   /* PAGE HERO */
-  .page-hero { position:relative; isolation:isolate; display:flex; align-items:flex-end; min-height:65vh; overflow:hidden; padding-top:5rem; }
-  .page-hero__bg { position:absolute; inset:0; z-index:-2; }
-  .page-hero__bg img { width:100%; height:100%; object-fit:cover; object-position:center 25%; }
-  .page-hero__overlay { position:absolute; inset:0; z-index:-1; background:linear-gradient(to top, rgba(5,5,5,0.97) 0%, rgba(5,5,5,0.5) 55%, rgba(5,5,5,0.25) 100%); }
-  .page-hero__content { padding-bottom:4rem; }
-  .page-hero__sub { max-width:38rem; font-size:0.95rem; line-height:1.95; color:var(--fg-muted); margin:0; }
+  .page-hero {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    align-items: flex-end;
+    min-height: 65vh;
+    overflow: hidden;
+    padding-top: 5rem;
+  }
+  .page-hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+  }
+  .page-hero__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+  }
+  .page-hero__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+      to top,
+      rgba(5, 5, 5, 0.97) 0%,
+      rgba(5, 5, 5, 0.5) 55%,
+      rgba(5, 5, 5, 0.25) 100%
+    );
+  }
+  .page-hero__content {
+    padding-bottom: 4rem;
+  }
+  .page-hero__sub {
+    max-width: 42rem;
+    font-size: 0.95rem;
+    line-height: 1.9;
+    color: var(--fg-muted);
+    margin: 0;
+  }
 
   /* STATS BAR */
-  .stats-bar { background: var(--bg-elevated); border-bottom: 1px solid var(--border); }
-  .stats-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:0; }
-  @media (min-width:768px) { .stats-grid { grid-template-columns:repeat(4,1fr); } }
+  .stats-bar {
+    background: var(--bg-elevated);
+    border-bottom: 1px solid var(--border);
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+  }
+  @media (min-width: 768px) {
+    .stats-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
   .stat-item {
-    display:flex; flex-direction:column; align-items:center; gap:0.35rem;
-    padding:1.5rem 1rem;
-    border-right:1px solid var(--border);
-    text-align:center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 1.5rem 1rem;
+    border-right: 1px solid var(--border);
+    text-align: center;
   }
-  .stat-item:last-child { border-right:none; }
+  .stat-item:last-child {
+    border-right: none;
+  }
   .stat-value {
-    font-family:var(--font-heading);
-    font-size:clamp(1.6rem,3vw,2.2rem);
-    color:var(--gold);
-    line-height:1;
-    letter-spacing:-0.02em;
+    font-family: var(--font-heading);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    color: var(--gold);
+    line-height: 1;
+    letter-spacing: -0.02em;
   }
-  .stat-label { font-size:0.6rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--fg-dim); }
+  .stat-label {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+  }
 
   /* INTRO */
-  .intro-grid { display:grid; gap:3rem; align-items:center; }
-  @media (min-width:1024px) { .intro-grid { grid-template-columns:1fr 1fr; gap:5rem; } }
-  .intro-img { border-radius:var(--radius-xl); overflow:hidden; border:1px solid var(--border); min-height:24rem; position:relative; }
-  .intro-img img { width:100%; height:100%; object-fit:cover; position:absolute; inset:0; }
+  .intro-grid {
+    display: grid;
+    gap: 3rem;
+    align-items: center;
+  }
+  @media (min-width: 1024px) {
+    .intro-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+    }
+  }
+  .intro-img {
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    min-height: 24rem;
+    position: relative;
+  }
+  .intro-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    inset: 0;
+  }
   .intro-img__badge {
-    position:absolute; bottom:1.25rem; left:1.25rem;
-    background:rgba(5,5,5,0.85);
-    border:1px solid var(--border-gold);
-    border-radius:var(--radius-md);
-    padding:0.75rem 1rem;
-    backdrop-filter:blur(12px);
-    display:flex; flex-direction:column; gap:0.2rem;
+    position: absolute;
+    bottom: 1.25rem;
+    left: 1.25rem;
+    background: rgba(5, 5, 5, 0.85);
+    border: 1px solid var(--border-gold);
+    border-radius: var(--radius-md);
+    padding: 0.75rem 1rem;
+    backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  /* VISUAL MOSAIC */
+  .mosaic-head {
+    margin-bottom: 2rem;
+  }
+  .exp-mosaic {
+    display: grid;
+    gap: 1rem;
+  }
+  @media (min-width: 960px) {
+    .exp-mosaic {
+      grid-template-columns: 1.4fr 1fr 1fr;
+    }
+  }
+  .mosaic-slot {
+    min-height: 16rem;
+    position: relative;
+    border: 1px solid var(--border-gold);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    padding: 1.1rem;
+    background:
+      radial-gradient(
+        120% 90% at 20% 0%,
+        rgba(201, 168, 76, 0.18),
+        transparent 45%
+      ),
+      linear-gradient(165deg, rgba(24, 23, 20, 0.9), rgba(8, 8, 7, 0.98));
+  }
+  .mosaic-slot img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .mosaic-slot::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(5, 5, 5, 0.9),
+      rgba(5, 5, 5, 0.08)
+    );
+  }
+  .mosaic-slot--main {
+    min-height: 22rem;
+  }
+  .mosaic-slot__chip {
+    position: absolute;
+    top: 0.85rem;
+    left: 0.85rem;
+    z-index: 2;
+    font-size: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(201, 168, 76, 0.5);
+    background: rgba(5, 5, 5, 0.65);
+    border-radius: 999px;
+    padding: 0.28rem 0.56rem;
+  }
+  .mosaic-slot p {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    font-size: 0.64rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
   }
 
   /* EXPERIENCES GRID */
-  .exp-grid { display:grid; gap:1.5rem; }
-  @media (min-width:768px) { .exp-grid { grid-template-columns:repeat(2,1fr); } }
+  .exp-grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .exp-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
 
   .exp-card {
-    position:relative;
-    background:var(--bg-card);
-    border:1px solid var(--border);
-    border-radius:var(--radius-lg);
-    padding:2.25rem 2rem 2rem;
-    display:flex; flex-direction:column; gap:1rem;
-    transition:border-color 0.4s ease, transform 0.4s var(--ease-out), box-shadow 0.4s ease;
-    overflow:hidden;
+    position: relative;
+    background: linear-gradient(
+      155deg,
+      rgba(24, 23, 20, 0.85),
+      rgba(15, 15, 13, 0.96)
+    );
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2.25rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition:
+      border-color 0.4s ease,
+      transform 0.4s var(--ease-out),
+      box-shadow 0.4s ease;
+    overflow: hidden;
+  }
+
+  .exp-card__media {
+    position: relative;
+    min-height: 11.5rem;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(201, 168, 76, 0.35);
+    background:
+      radial-gradient(
+        130% 100% at 12% 0%,
+        rgba(201, 168, 76, 0.2),
+        transparent 45%
+      ),
+      linear-gradient(160deg, rgba(33, 31, 26, 0.95), rgba(7, 7, 7, 1));
+    display: flex;
+    align-items: flex-end;
+    padding: 0.9rem;
+    overflow: hidden;
+  }
+  .exp-card__media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .exp-card__media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(6, 6, 6, 0.68),
+      rgba(6, 6, 6, 0.12)
+    );
+    pointer-events: none;
+  }
+  .exp-card__media-tag {
+    position: absolute;
+    top: 0.7rem;
+    left: 0.7rem;
+    z-index: 2;
+    font-size: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(201, 168, 76, 0.55);
+    border-radius: 999px;
+    padding: 0.23rem 0.48rem;
+    background: rgba(7, 7, 7, 0.72);
   }
   .exp-card::before {
-    content:'';
-    position:absolute;
-    top:0; left:0; right:0;
-    height:2px;
-    background:linear-gradient(90deg, transparent, var(--gold), transparent);
-    opacity:0;
-    transition:opacity 0.4s ease;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
   }
   .exp-card:hover {
-    border-color:var(--border-gold);
-    transform:translateY(-5px);
-    box-shadow:0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px var(--border-gold);
+    border-color: var(--border-gold);
+    transform: translateY(-5px);
+    box-shadow:
+      0 20px 60px rgba(0, 0, 0, 0.5),
+      0 0 0 1px var(--border-gold);
   }
-  .exp-card:hover::before { opacity:1; }
+  .exp-card:hover::before {
+    opacity: 1;
+  }
 
   .exp-card__num {
-    position:absolute; top:1.5rem; right:1.75rem;
-    font-family:var(--font-heading);
-    font-size:3.5rem;
-    font-weight:500;
-    color:var(--border);
-    line-height:1;
-    letter-spacing:-0.04em;
-    transition:color 0.4s ease;
-    pointer-events:none;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.75rem;
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    font-weight: 500;
+    color: var(--border);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    transition: color 0.4s ease;
+    pointer-events: none;
   }
-  .exp-card:hover .exp-card__num { color:var(--border-gold); }
+  .exp-card:hover .exp-card__num {
+    color: var(--border-gold);
+  }
 
   .exp-card__icon {
-    width:2.5rem; height:2.5rem;
-    color:var(--gold);
-    flex-shrink:0;
+    width: 2.5rem;
+    height: 2.5rem;
+    color: var(--gold);
+    flex-shrink: 0;
   }
-  .exp-card__icon svg { width:100%; height:100%; }
+  .exp-card__icon svg {
+    width: 100%;
+    height: 100%;
+  }
+  .exp-card__icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: brightness(0) saturate(100%) invert(79%) sepia(31%) saturate(528%)
+      hue-rotate(6deg) brightness(94%) contrast(91%);
+  }
 
   .exp-card__name {
-    font-size:1.4rem;
-    line-height:1.2;
-    margin:0;
+    font-size: 1.4rem;
+    line-height: 1.2;
+    margin: 0;
   }
 
   .exp-card__desc {
-    font-size:0.85rem;
-    line-height:1.9;
-    color:var(--fg-muted);
-    margin:0;
+    font-size: 0.85rem;
+    line-height: 1.9;
+    color: var(--fg-muted);
+    margin: 0;
   }
 
   .exp-card__meta {
-    display:flex; gap:1rem;
-    border-top:1px solid var(--border);
-    border-bottom:1px solid var(--border);
-    padding-block:0.9rem;
+    display: flex;
+    gap: 1rem;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding-block: 0.9rem;
   }
 
   .meta-pill {
-    display:flex; flex-direction:column; gap:0.2rem;
-    padding:0.4rem 0.85rem;
-    background:var(--bg-high);
-    border-radius:var(--radius-sm);
-    border:1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 0.4rem 0.85rem;
+    background: var(--bg-high);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
   }
-  .meta-pill__lbl { font-size:0.52rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--fg-dim); }
-  .meta-pill__val { font-size:0.8rem; font-weight:600; color:var(--fg); }
+  .meta-pill__lbl {
+    font-size: 0.52rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+  }
+  .meta-pill__val {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--fg);
+  }
 
   .exp-card__includes {
-    list-style:none;
-    display:flex; flex-direction:column; gap:0.6rem;
-    flex:1;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    flex: 1;
   }
   .exp-card__includes li {
-    display:flex; align-items:center; gap:0.6rem;
-    font-size:0.825rem; color:var(--fg-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.825rem;
+    color: var(--fg-muted);
   }
-  .inc-icon { width:0.85rem; height:0.85rem; color:var(--gold); flex-shrink:0; }
+  .inc-icon {
+    width: 0.85rem;
+    height: 0.85rem;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
 
-  .exp-card__cta { margin-top:auto; align-self:flex-start; }
+  .exp-card__cta {
+    margin-top: auto;
+    align-self: flex-start;
+  }
 
   /* CTA PANEL */
   .cta-panel {
-    position:relative;
-    background:var(--bg-elevated);
-    border:1px solid var(--border);
-    border-radius:var(--radius-xl);
-    padding:clamp(3rem,7vw,5rem);
-    text-align:center;
-    overflow:hidden;
+    position: relative;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: clamp(3rem, 7vw, 5rem);
+    text-align: center;
+    overflow: hidden;
   }
   .cta-panel__glow {
-    position:absolute;
-    top:50%; left:50%;
-    transform:translate(-50%,-50%);
-    width:40rem; height:20rem;
-    background:radial-gradient(ellipse at center, rgba(201,168,76,0.08) 0%, transparent 70%);
-    pointer-events:none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40rem;
+    height: 20rem;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(201, 168, 76, 0.08) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
   }
-  .cta-panel__content { position:relative; z-index:1; }
+  .cta-panel__content {
+    position: relative;
+    z-index: 1;
+  }
 </style>
