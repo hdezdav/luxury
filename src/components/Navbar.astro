@@ -1,35 +1,68 @@
 ---
 const pathname = Astro.url.pathname;
-const isEn = pathname.startsWith('/en');
+const isEn = pathname.startsWith("/en");
+const basePath = isEn ? pathname.slice(3) || "/" : pathname;
+const esHref = basePath;
+const enHref = `/en${basePath === "/" ? "" : basePath}`;
 
 // Ajustar rutas según idioma actual
-const langPrefix = isEn ? '/en' : '';
+const langPrefix = isEn ? "/en" : "";
 const links = [
   { href: `${langPrefix}/`, label: isEn ? "Home" : "Inicio" },
-  { href: `${langPrefix}/mansiones`, label: isEn ? "Luxury Mansions" : "Renta de Mansiones" },
-  { href: `${langPrefix}/vehiculos`, label: isEn ? "High-end Vehicles" : "Vehículos de Alta Gama" },
+  {
+    href: `${langPrefix}/mansiones`,
+    label: isEn ? "Luxury Mansions" : "Renta de Mansiones",
+  },
+  {
+    href: `${langPrefix}/vehiculos`,
+    label: isEn ? "High-end Vehicles" : "Vehículos de Alta Gama",
+  },
   { href: `${langPrefix}/yates`, label: isEn ? "Yachts" : "Yates" },
-  { href: `${langPrefix}/experiencias`, label: isEn ? "Experiences" : "Experiencias" },
+  {
+    href: `${langPrefix}/experiencias`,
+    label: isEn ? "Experiences" : "Experiencias",
+  },
 ];
 ---
 
 <nav class="navbar" id="main-nav">
   <div class="container navbar__inner">
-    <a href={`${langPrefix}/`} aria-label="Luxury Travel Home" class="navbar__logo">
-      <img src="/brand/logo-wide.png" alt="Luxury Travel Home" width="140" height="30" />
+    <a
+      href={`${langPrefix}/`}
+      aria-label="Luxury Travel Home"
+      class="navbar__logo"
+    >
+      <img
+        src="/brand/logo-wide.png"
+        alt="Luxury Travel Home"
+        width="140"
+        height="30"
+      />
     </a>
 
     <div class="navbar__links">
-      {links.map((l) => (
-        <a href={l.href} class="nav-link">{l.label}</a>
-      ))}
+      {
+        links.map((l) => (
+          <a href={l.href} class="nav-link">
+            {l.label}
+          </a>
+        ))
+      }
     </div>
 
     <div class="navbar__actions">
       <div class="lang-switch">
-        <a href="/" class={isEn ? "lang-link" : "lang-active"}>ES</a>
+        <a
+          href={esHref}
+          class={isEn ? "lang-link" : "lang-active"}
+          data-lang-switch="es">ES</a
+        >
         <span class="lang-sep">|</span>
-        <a href="/en" class={isEn ? "lang-active" : "lang-link"}>EN</a>
+        <a
+          href={enHref}
+          class={isEn ? "lang-active" : "lang-link"}
+          data-lang-switch="en">EN</a
+        >
       </div>
       <a
         href="https://wa.me/573217927739"
@@ -39,7 +72,11 @@ const links = [
       >
         {isEn ? "Contact" : "Contactar"}
       </a>
-      <button class="navbar__hamburger" aria-label={isEn ? "Open menu" : "Abrir menú"} id="menu-toggle">
+      <button
+        class="navbar__hamburger"
+        aria-label={isEn ? "Open menu" : "Abrir menú"}
+        id="menu-toggle"
+      >
         <span></span>
         <span></span>
         <span class="short"></span>
@@ -50,17 +87,23 @@ const links = [
 
 <!-- Mobile menu -->
 <div class="mobile-menu" id="mobile-menu">
-  <button class="mobile-menu__close" aria-label={isEn ? "Close menu" : "Cerrar menú"} id="menu-close">&times;</button>
-  {links.map((l) => (
-    <a href={l.href}>{l.label}</a>
-  ))}
+  <button
+    class="mobile-menu__close"
+    aria-label={isEn ? "Close menu" : "Cerrar menú"}
+    id="menu-close">&times;</button
+  >
+  {links.map((l) => <a href={l.href}>{l.label}</a>)}
   <a
     href="https://wa.me/573217927739"
     target="_blank"
     rel="noopener noreferrer"
     class="btn--wa-pill"
   >
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+      ><path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+      ></path></svg
+    >
     WhatsApp
   </a>
 </div>
@@ -76,7 +119,9 @@ const links = [
     border-bottom: 1px solid transparent;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    transition: background 0.35s ease, border-color 0.35s ease;
+    transition:
+      background 0.35s ease,
+      border-color 0.35s ease;
   }
 
   .navbar.scrolled {
@@ -97,7 +142,9 @@ const links = [
   }
 
   @media (min-width: 768px) {
-    .navbar__logo img { width: 8rem; }
+    .navbar__logo img {
+      width: 8rem;
+    }
   }
 
   .navbar__links {
@@ -107,7 +154,9 @@ const links = [
   }
 
   @media (min-width: 1024px) {
-    .navbar__links { display: flex; }
+    .navbar__links {
+      display: flex;
+    }
   }
 
   .navbar__actions {
@@ -116,8 +165,10 @@ const links = [
     gap: 0.75rem;
   }
 
-  .navbar__cta { display: none; }
-  
+  .navbar__cta {
+    display: none;
+  }
+
   .lang-switch {
     display: flex;
     align-items: center;
@@ -143,7 +194,9 @@ const links = [
   }
 
   @media (min-width: 768px) {
-    .navbar__cta { display: inline-flex; }
+    .navbar__cta {
+      display: inline-flex;
+    }
   }
 
   .navbar__hamburger {
@@ -157,7 +210,9 @@ const links = [
   }
 
   @media (min-width: 1024px) {
-    .navbar__hamburger { display: none; }
+    .navbar__hamburger {
+      display: none;
+    }
   }
 
   .navbar__hamburger span {
@@ -187,23 +242,32 @@ const links = [
 </style>
 
 <script>
-  const nav = document.getElementById('main-nav');
-  const toggle = document.getElementById('menu-toggle');
-  const close = document.getElementById('menu-close');
-  const menu = document.getElementById('mobile-menu');
+  const nav = document.getElementById("main-nav");
+  const toggle = document.getElementById("menu-toggle");
+  const close = document.getElementById("menu-close");
+  const menu = document.getElementById("mobile-menu");
 
-  window.addEventListener('scroll', () => {
+  window.addEventListener("scroll", () => {
     if (window.scrollY > 40) {
-      nav?.classList.add('scrolled');
+      nav?.classList.add("scrolled");
     } else {
-      nav?.classList.remove('scrolled');
+      nav?.classList.remove("scrolled");
     }
   });
 
-  toggle?.addEventListener('click', () => menu?.classList.add('open'));
-  close?.addEventListener('click', () => menu?.classList.remove('open'));
+  toggle?.addEventListener("click", () => menu?.classList.add("open"));
+  close?.addEventListener("click", () => menu?.classList.remove("open"));
 
-  menu?.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => menu?.classList.remove('open'));
+  menu?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => menu?.classList.remove("open"));
+  });
+
+  document.querySelectorAll("[data-lang-switch]").forEach((link) => {
+    link.addEventListener("click", () => {
+      const lang = link.getAttribute("data-lang-switch");
+      if (lang) {
+        localStorage.setItem("preferred_lang", lang);
+      }
+    });
   });
 </script>

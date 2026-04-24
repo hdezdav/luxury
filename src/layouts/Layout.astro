@@ -2,16 +2,28 @@
 interface Props {
   title?: string;
   description?: string;
+  lang?: "es" | "en";
 }
 
 const {
   title = "Luxury Travel Home - Experimenta El Lujo Sin Límites",
   description = "Luxury Travel Home, Vive una experiencia de lujo sin límites, en cada viaje. Somos tu mejor aliado. Mansiones, yates, vehículos de alta gama y tours exclusivos en Medellín.",
+  lang = "es",
 } = Astro.props;
+
+const isEn = lang === "en";
+const ogLocale = isEn ? "en_US" : "es_CO";
+const twitterTitle = isEn
+  ? "Luxury Travel Home - Experience Limitless Luxury"
+  : "Luxury Travel Home - Experimenta El Lujo Sin Límites";
+const twitterDescription = isEn
+  ? "Experience limitless luxury on every trip. Medellin, Colombia."
+  : "Vive una experiencia de lujo sin límites en cada viaje. Medellín, Colombia.";
+const availableLanguage = isEn ? "English" : "Spanish";
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -60,13 +72,10 @@ const {
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content="es_CO" />
+    <meta property="og:locale" content={ogLocale} />
     <meta property="og:url" content="https://luxurytravelhome.co" />
     <meta property="og:site_name" content="Luxury Travel Home" />
-    <meta
-      property="og:title"
-      content="Luxury Travel Home - Experimenta El Lujo Sin Límites"
-    />
+    <meta property="og:title" content={twitterTitle} />
     <meta
       property="og:description"
       content="Mansiones de lujo, yates, vehículos de alta gama y tours exclusivos en Medellín, Colombia."
@@ -79,10 +88,7 @@ const {
       name="twitter:title"
       content="Luxury Travel Home - Experimenta El Lujo Sin Límites"
     />
-    <meta
-      name="twitter:description"
-      content="Vive una experiencia de lujo sin límites en cada viaje. Medellín, Colombia."
-    />
+    <meta name="twitter:description" content={twitterDescription} />
 
     <!-- Schema.org -->
     <script
@@ -137,7 +143,7 @@ const {
               "@type": "ContactPoint",
               telephone: "+573217927739",
               contactType: "customer service",
-              availableLanguage: "Spanish",
+              availableLanguage,
             },
           },
           {
@@ -146,11 +152,46 @@ const {
             url: "https://luxurytravelhome.co",
             name: "Luxury Travel Home",
             description: "Experimenta El Lujo Sin Límites",
-            inLanguage: "es",
+            inLanguage: lang,
           },
         ],
       })}
     />
+
+    <script is:inline>
+      (() => {
+        try {
+          const storedLang = localStorage.getItem("preferred_lang");
+          if (storedLang === "es" || storedLang === "en") {
+            return;
+          }
+
+          const browserLang = (navigator.language || "").toLowerCase();
+          const wantsEn = browserLang.startsWith("en");
+          const desiredLang = wantsEn ? "en" : "es";
+          const path = window.location.pathname;
+          const search = window.location.search;
+          const hash = window.location.hash;
+
+          const mapToLocale = (pathname, locale) => {
+            if (locale === "en") {
+              return pathname.startsWith("/en")
+                ? pathname
+                : `/en${pathname === "/" ? "" : pathname}`;
+            }
+            if (pathname === "/en") return "/";
+            return pathname.startsWith("/en/") ? pathname.slice(3) : pathname;
+          };
+
+          const targetPath = mapToLocale(path, desiredLang);
+          if (targetPath !== path) {
+            window.location.replace(`${targetPath}${search}${hash}`);
+          }
+        } catch {
+          // no-op: avoid breaking rendering if storage/navigation is blocked
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="site-preloader" class="site-preloader" aria-hidden="true">

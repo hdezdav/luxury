@@ -1,0 +1,391 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+import WhatsAppFloat from "../../components/WhatsAppFloat.astro";
+import "../../styles/global.css";
+
+const CARS = [
+  {
+    name: "Urus Sport",
+    brand: "Lamborghini",
+    desc: "Super SUV with 650 HP. Luxury and adrenaline on the streets of Medellin.",
+    seats: "4",
+    tag: "Available",
+  },
+  {
+    name: "Cullinan Black Badge",
+    brand: "Rolls-Royce",
+    desc: "The most luxurious SUV in the world. Travel at the peak of exclusivity.",
+    seats: "5",
+    tag: "Premium",
+  },
+  {
+    name: "G63 AMG",
+    brand: "Mercedes-Benz",
+    desc: "An icon of power and style. A favorite choice for VIP clients.",
+    seats: "5",
+    tag: "Available",
+  },
+  {
+    name: "Range Rover Autobiography",
+    brand: "Land Rover",
+    desc: "British refinement and off-road capability. Maximum comfort for any route.",
+    seats: "5",
+    tag: "New",
+  },
+  {
+    name: "Panamera Turbo S",
+    brand: "Porsche",
+    desc: "Supercar performance with the comfort and space of an executive sedan.",
+    seats: "4",
+    tag: "Available",
+  },
+  {
+    name: "Escalade Platinum",
+    brand: "Cadillac",
+    desc: "Imposing presence and first-class interior. Ideal for executive transfers.",
+    seats: "7",
+    tag: "Available",
+  },
+];
+
+const BRANDS = [
+  "Lamborghini",
+  "Rolls-Royce",
+  "Mercedes-Benz",
+  "Land Rover",
+  "Porsche",
+  "Cadillac",
+];
+---
+
+<Layout
+  lang="en"
+  title="High-End Vehicles in Medellin - Luxury Travel Home"
+  description="Rent high-end vehicles in Medellin and drive the city in style with our exclusive fleet."
+>
+  <Navbar />
+  <WhatsAppFloat />
+
+  <header class="page-hero">
+    <div class="page-hero__bg">
+      <img
+        src="/services/carros-de-lujo.png"
+        alt="High-end vehicles Medellin"
+        loading="eager"
+      />
+    </div>
+    <div class="page-hero__overlay"></div>
+    <div class="container page-hero__content">
+      <p class="overline fade-up mb-4">Exclusivity on four wheels</p>
+      <h1 class="fade-up-1 mb-4">High-End Cars</h1>
+      <p class="page-hero__sub fade-up-2">
+        Discover the best high-end cars and drive through Medellin with style
+        and class.
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <section class="section container">
+      <div class="fleet-header reveal">
+        <div>
+          <h2>Our Fleet</h2>
+          <p class="text-sm text-muted mt-1">
+            {CARS.length} vehicles available
+          </p>
+        </div>
+        <a
+          href="https://wa.me/573217927739?text=Hello,%20I%20want%20information%20about%20available%20vehicles"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn--outline">Check availability</a
+        >
+      </div>
+
+      <!-- Brands strip -->
+      <div class="brands-strip reveal">
+        {BRANDS.map((b) => <span class="brand-pill">{b}</span>)}
+      </div>
+
+      <!-- Cars grid -->
+      <div class="cars-grid">
+        {
+          CARS.map((c) => (
+            <article class="card car-card reveal">
+              <div class="car-card__img">
+                <img
+                  src="/services/carros-de-lujo.png"
+                  alt={`${c.brand} ${c.name}`}
+                  loading="lazy"
+                />
+                <div class="car-card__overlay" />
+                <span class="car-card__tag">{c.tag}</span>
+                <div class="car-card__label">
+                  <p
+                    class="overline"
+                    style="font-size:0.55rem; color:var(--gold);"
+                  >
+                    {c.brand}
+                  </p>
+                  <h3 style="font-size:1.1rem;">{c.name}</h3>
+                </div>
+              </div>
+              <div class="car-card__body">
+                <p class="text-sm leading-relaxed mb-4">{c.desc}</p>
+                <div class="car-card__spec">
+                  <span class="spec-lbl">Passengers</span>
+                  <span class="spec-num">{c.seats}</span>
+                </div>
+                <a
+                  href="https://wa.me/573217927739?text=Hello,%20I%20want%20information%20about%20high-end%20vehicles"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--gold car-card__cta"
+                >
+                  More info
+                </a>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="cta-split reveal">
+          <div class="cta-split__text">
+            <p class="overline mb-3">Chauffeur service</p>
+            <h2>Includes trusted driver</h2>
+            <div class="accent-line"></div>
+            <p class="text-sm leading-relaxed mb-6">
+              All our vehicles can include a professional, discreet, and
+              punctual driver. Enjoy the ride with zero stress.
+            </p>
+            <div style="display:flex; flex-wrap:wrap; gap:0.75rem;">
+              <a
+                href="https://wa.me/573217927739?text=Hello,%20I%20want%20to%20rent%20a%20high-end%20vehicle"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn--gold">Book vehicle</a
+              >
+              <a
+                href="https://wa.me/573217927739"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn--outline">Check pricing</a
+              >
+            </div>
+          </div>
+          <div class="cta-split__img">
+            <img
+              src="/services/carros-de-lujo.png"
+              alt="High-end vehicle with chauffeur"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="en" />
+</Layout>
+
+<style>
+  .page-hero {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    align-items: flex-end;
+    min-height: 58vh;
+    overflow: hidden;
+    padding-top: 5rem;
+  }
+  .page-hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+  }
+  .page-hero__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .page-hero__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+      to top,
+      rgba(5, 5, 5, 0.95) 0%,
+      rgba(5, 5, 5, 0.55) 55%,
+      rgba(5, 5, 5, 0.35) 100%
+    );
+  }
+  .page-hero__content {
+    padding-bottom: 3.5rem;
+  }
+  .page-hero__sub {
+    max-width: 36rem;
+    font-size: 0.95rem;
+    line-height: 1.85;
+    color: var(--fg-muted);
+    margin: 0;
+  }
+
+  .fleet-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .brands-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .brand-pill {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    border: 1px solid var(--border);
+    border-radius: 2rem;
+    padding: 0.3rem 0.9rem;
+  }
+
+  .cars-grid {
+    display: grid;
+    gap: 1.75rem;
+    margin-bottom: 0;
+  }
+  @media (min-width: 640px) {
+    .cars-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 1024px) {
+    .cars-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .car-card {
+    display: flex;
+    flex-direction: column;
+  }
+  .car-card__img {
+    position: relative;
+    height: 14rem;
+    overflow: hidden;
+  }
+  .car-card__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .car-card:hover .car-card__img img {
+    transform: scale(1.05);
+  }
+  .car-card__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.9) 0%,
+      rgba(0, 0, 0, 0.05) 60%,
+      transparent 100%
+    );
+  }
+  .car-card__tag {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    background: var(--gold);
+    color: #1a1200;
+    padding: 0.25rem 0.75rem;
+    border-radius: 2rem;
+  }
+  .car-card__label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem 1.25rem;
+  }
+  .car-card__body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 1.25rem;
+  }
+  .car-card__spec {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding-block: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  .spec-lbl {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+  }
+  .spec-num {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .car-card__cta {
+    width: 100%;
+    margin-top: auto;
+  }
+
+  .cta-split {
+    display: grid;
+    gap: 3rem;
+    align-items: center;
+  }
+  @media (min-width: 1024px) {
+    .cta-split {
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+  }
+  .cta-split__img {
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    min-height: 22rem;
+    position: relative;
+  }
+  .cta-split__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    inset: 0;
+  }
+</style>

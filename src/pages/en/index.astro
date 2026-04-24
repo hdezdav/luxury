@@ -1,17 +1,41 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/Navbar.astro';
-import Footer from '../../components/Footer.astro';
-import WhatsAppFloat from '../../components/WhatsAppFloat.astro';
-import '../../styles/global.css';
-import propiedades from '../../data/propiedades.json';
-const mansionImages = propiedades.map(p => p.thumbnail).filter(Boolean).slice(0, 8);
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+import WhatsAppFloat from "../../components/WhatsAppFloat.astro";
+import "../../styles/global.css";
+import propiedades from "../../data/propiedades.json";
+const mansionImages = propiedades
+  .map((p) => p.thumbnail)
+  .filter(Boolean)
+  .slice(0, 8);
 
 const SERVICES = [
-  { href: "/en/mansiones", img: mansionImages[0], sublabel: "Exclusive properties", label: "Luxury Mansions", id: "mansiones-card" },
-  { href: "/en/vehiculos", img: "/services/carros-de-lujo.png", sublabel: "VIP Transport", label: "High-end Vehicles" },
-  { href: "/en/yates", img: "/services/yate.png", sublabel: "Premium Service", label: "Yachts" },
-  { href: "/en/experiencias", img: "/services/tour.png", sublabel: "Tours and events", label: "Experiences" },
+  {
+    href: "/en/mansiones",
+    img: mansionImages[0],
+    sublabel: "Exclusive properties",
+    label: "Luxury Mansions",
+    id: "mansiones-card",
+  },
+  {
+    href: "/en/vehiculos",
+    img: "/services/carros-de-lujo.png",
+    sublabel: "VIP Transport",
+    label: "High-end Vehicles",
+  },
+  {
+    href: "/en/yates",
+    img: "/services/yate.png",
+    sublabel: "Premium Service",
+    label: "Yachts",
+  },
+  {
+    href: "/en/experiencias",
+    img: "/services/tour.png",
+    sublabel: "Tours and events",
+    label: "Experiences",
+  },
 ];
 
 const BENEFITS = [
@@ -49,32 +73,59 @@ const WHY_US_LIST = [
 ];
 
 const REASONS = [
-  { title: "Experience", text: "We have years of experience in the luxury tourism industry." },
-  { title: "Trust", text: "We are a recognized and trusted company with an excellent reputation." },
-  { title: "Flexibility", text: "We can tailor our services to your specific needs." },
-  { title: "Passionate", text: "We are passionate about luxury and travel, and we want to share that passion with you." },
+  {
+    title: "Experience",
+    text: "We have years of experience in the luxury tourism industry.",
+  },
+  {
+    title: "Trust",
+    text: "We are a recognized and trusted company with an excellent reputation.",
+  },
+  {
+    title: "Flexibility",
+    text: "We can tailor our services to your specific needs.",
+  },
+  {
+    title: "Passionate",
+    text: "We are passionate about luxury and travel, and we want to share that passion with you.",
+  },
 ];
 
 const WEDDING_STEPS = [
-  { title: "Request a no-obligation quote:", body: "Contact us and tell us your ideas for your ideal bachelor/bachelorette party." },
-  { title: "We design the perfect experience for you:", body: "We will help you choose the destination, activities, and accommodation that best suit your needs." },
-  { title: "Live an unforgettable bachelor party:", body: "Create memories that will stay with you for a lifetime." },
+  {
+    title: "Request a no-obligation quote:",
+    body: "Contact us and tell us your ideas for your ideal bachelor/bachelorette party.",
+  },
+  {
+    title: "We design the perfect experience for you:",
+    body: "We will help you choose the destination, activities, and accommodation that best suit your needs.",
+  },
+  {
+    title: "Live an unforgettable bachelor party:",
+    body: "Create memories that will stay with you for a lifetime.",
+  },
 ];
 ---
 
-<Layout title="Luxury Travel Home - Experience Limitless Luxury">
+<Layout lang="en" title="Luxury Travel Home - Experience Limitless Luxury">
   <Navbar />
   <WhatsAppFloat />
 
   <!-- ═══ HERO ═══════════════════════════════════════ -->
   <header class="hero" id="home">
     <div class="hero__bg">
-      <img src="/services/mansiones-elite.png" alt="Luxury mansions in Medellin" loading="eager" />
+      <img
+        src="/services/mansiones-elite.png"
+        alt="Luxury mansions in Medellin"
+        loading="eager"
+      />
     </div>
     <div class="hero__overlay"></div>
 
     <div class="container hero__content">
-      <p class="overline fade-up mb-6">Luxury Travel Home · Medellin, Colombia</p>
+      <p class="overline fade-up mb-6">
+        Luxury Travel Home · Medellin, Colombia
+      </p>
       <h1 class="fade-up-1 mb-6">
         Experience luxury<br />
         <span class="gold-shimmer">without limits</span>
@@ -103,42 +154,60 @@ const WEDDING_STEPS = [
       </div>
 
       <div class="services-carousel reveal">
-        {SERVICES.map((s) => (
-          <a href={s.href} class="card service-card">
-            <div class="card__img">
-              <img 
-                src={s.img} 
-                alt={s.label} 
-                loading="lazy" 
-                id={s.id === "mansiones-card" ? "mansiones-img" : undefined}
-                style={s.id === "mansiones-card" ? "transition: opacity 0.5s ease-in-out;" : ""}
-              />
-              <div class="card__img-overlay"></div>
-              <div class="service-card__label">
-                <p class="overline" style="font-size:0.55rem; color:var(--gold);">{s.sublabel}</p>
-                <h3 style="font-size:1.4rem; line-height:1.25; margin-top:0.25rem;">{s.label}</h3>
+        {
+          SERVICES.map((s) => (
+            <a href={s.href} class="card service-card">
+              <div class="card__img">
+                <img
+                  src={s.img}
+                  alt={s.label}
+                  loading="lazy"
+                  id={s.id === "mansiones-card" ? "mansiones-img" : undefined}
+                  style={
+                    s.id === "mansiones-card"
+                      ? "transition: opacity 0.5s ease-in-out;"
+                      : ""
+                  }
+                />
+                <div class="card__img-overlay" />
+                <div class="service-card__label">
+                  <p
+                    class="overline"
+                    style="font-size:0.55rem; color:var(--gold);"
+                  >
+                    {s.sublabel}
+                  </p>
+                  <h3 style="font-size:1.4rem; line-height:1.25; margin-top:0.25rem;">
+                    {s.label}
+                  </h3>
+                </div>
               </div>
-            </div>
-            <div class="card__body text-center">
-              <span class="btn btn--outline" style="width:100%; justify-content:center;">More info</span>
-            </div>
-          </a>
-        ))}
+              <div class="card__body text-center">
+                <span
+                  class="btn btn--outline"
+                  style="width:100%; justify-content:center;"
+                >
+                  More info
+                </span>
+              </div>
+            </a>
+          ))
+        }
       </div>
     </div>
   </section>
 
   <script define:vars={{ mansionImages }}>
-    const imgElement = document.getElementById('mansiones-img');
+    const imgElement = document.getElementById("mansiones-img");
     if (imgElement && mansionImages.length > 0) {
       let currentIndex = 0;
       // Change image every 3.5 seconds
       setInterval(() => {
-        imgElement.style.opacity = '0';
+        imgElement.style.opacity = "0";
         setTimeout(() => {
           currentIndex = (currentIndex + 1) % mansionImages.length;
           imgElement.src = mansionImages[currentIndex];
-          imgElement.style.opacity = '1';
+          imgElement.style.opacity = "1";
         }, 500); // match CSS transition duration
       }, 3500);
     }
@@ -156,288 +225,577 @@ const WEDDING_STEPS = [
       <div class="why-grid">
         <div class="why-text reveal">
           <p class="mb-8" style="line-height:1.95;">
-            At Luxury Travel Home, we specialize in creating unique and unforgettable travel experiences
-            for our most demanding clients. We offer a wide range of luxury services, including:
+            At Luxury Travel Home, we specialize in creating unique and
+            unforgettable travel experiences for our most demanding clients. We
+            offer a wide range of luxury services, including:
           </p>
 
           <ul class="benefit-list mb-8">
-            {BENEFITS.map((b) => (
-              <li class="benefit-item">
-                <span class="benefit-diamond">◆</span>
-                <div>
-                  <p class="font-semibold text-sm mb-1" style="color:var(--fg);">{b.title}</p>
-                  <p class="text-sm leading-relaxed">{b.text}</p>
-                </div>
-              </li>
-            ))}
+            {
+              BENEFITS.map((b) => (
+                <li class="benefit-item">
+                  <span class="benefit-diamond">◆</span>
+                  <div>
+                    <p
+                      class="font-semibold text-sm mb-1"
+                      style="color:var(--fg);"
+                    >
+                      {b.title}
+                    </p>
+                    <p class="text-sm leading-relaxed">{b.text}</p>
+                  </div>
+                </li>
+              ))
+            }
           </ul>
-
         </div>
 
         <div class="why-image reveal">
           <div class="why-image__wrap">
-            <img src="/services/mansiones-elite.png" alt="Luxury mansion in Medellin" loading="lazy" />
+            <img
+              src="/services/mansiones-elite.png"
+              alt="Luxury mansion in Medellin"
+              loading="lazy"
+            />
           </div>
         </div>
       </div>
-      </div>
     </div>
   </section>
+</Layout>
 
-  <!-- ═══ WHO WE ARE (EDITORIAL) ═════════════════════════ -->
-  <section class="section" id="who-we-are">
-    <div class="container">
-      <div class="editorial-grid">
-        <!-- Recuadro / Mission Box -->
-        <div class="editorial-box reveal">
-          <p class="overline mb-4 text-gold">Who We Are</p>
-          <h2 class="mb-6">Our <span class="text-gold">Mission</span></h2>
-          <p class="editorial-text mb-8">
-            Our mission is to make our clients' dreams come true. With personalized service
-            and attention to detail, we are committed to providing a travel experience that exceeds
-            all your expectations.
-          </p>
-          <div class="accent-line mb-8"></div>
-          <p class="font-medium text-gold" style="font-size: 1.05rem; line-height: 1.6;">
-            Welcome to a world of exclusivity and elegance with Luxury Travel Home!
-          </p>
-        </div>
+<!-- ═══ WHO WE ARE (EDITORIAL) ═════════════════════════ -->
+<section class="section" id="who-we-are">
+  <div class="container">
+    <div class="editorial-grid">
+      <!-- Recuadro / Mission Box -->
+      <div class="editorial-box reveal">
+        <p class="overline mb-4 text-gold">Who We Are</p>
+        <h2 class="mb-6">Our <span class="text-gold">Mission</span></h2>
+        <p class="editorial-text mb-8">
+          Our mission is to make our clients' dreams come true. With
+          personalized service and attention to detail, we are committed to
+          providing a travel experience that exceeds all your expectations.
+        </p>
+        <div class="accent-line mb-8"></div>
+        <p
+          class="font-medium text-gold"
+          style="font-size: 1.05rem; line-height: 1.6;"
+        >
+          Welcome to a world of exclusivity and elegance with Luxury Travel
+          Home!
+        </p>
+      </div>
 
-        <!-- Razones Editorial -->
-        <div class="editorial-content reveal">
-          <p class="mb-8" style="font-size: 1.15rem; color: var(--fg); line-height: 1.8;">
-            By choosing Luxury Travel Home, you can enjoy:
-          </p>
-          <ul class="dash-list">
-            {WHY_US_LIST.map((item) => (
+      <!-- Razones Editorial -->
+      <div class="editorial-content reveal">
+        <p
+          class="mb-8"
+          style="font-size: 1.15rem; color: var(--fg); line-height: 1.8;"
+        >
+          By choosing Luxury Travel Home, you can enjoy:
+        </p>
+        <ul class="dash-list">
+          {
+            WHY_US_LIST.map((item) => (
               <li class="dash-item editorial-dash">
-                <span class="dash-line"></span>
+                <span class="dash-line" />
                 <span>
-                  <strong class="font-medium" style="color:var(--gold);">{item.title}</strong>{" "}
+                  <strong class="font-medium" style="color:var(--gold);">
+                    {item.title}
+                  </strong>{" "}
                   <span style="color: var(--fg-muted);">{item.text}</span>
                 </span>
               </li>
-            ))}
-          </ul>
-        </div>
+            ))
+          }
+        </ul>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ═══ MORE REASONS & TEAM ══════════════════════════════ -->
-  <section class="section section--alt reasons-section" id="team">
-    <div class="container">
-      <div class="reasons-team-grid">
-        
-        <!-- Left: More Reasons -->
-        <div class="reasons-block">
-          <div class="text-left mb-10 reveal">
-            <p class="overline mb-3">More reasons to choose us</p>
-            <div class="accent-line"></div>
-          </div>
-          <div class="grid-2">
-            {REASONS.map((r) => (
+<!-- ═══ MORE REASONS & TEAM ══════════════════════════════ -->
+<section class="section section--alt reasons-section" id="team">
+  <div class="container">
+    <div class="reasons-team-grid">
+      <!-- Left: More Reasons -->
+      <div class="reasons-block">
+        <div class="text-left mb-10 reveal">
+          <p class="overline mb-3">More reasons to choose us</p>
+          <div class="accent-line"></div>
+        </div>
+        <div class="grid-2">
+          {
+            REASONS.map((r) => (
               <div class="reason-card card reveal" style="text-align: left;">
                 <div class="reason-card__body">
-                  <span class="reason-card__line" style="margin: 0 0 1.5rem 0;"></span>
+                  <span
+                    class="reason-card__line"
+                    style="margin: 0 0 1.5rem 0;"
+                  />
                   <h3>{r.title}</h3>
                   <p class="text-sm leading-relaxed mt-2">{r.text}</p>
                 </div>
               </div>
-            ))}
-          </div>
+            ))
+          }
         </div>
+      </div>
 
-        <!-- Right: Team -->
-        <div class="team-block reveal">
-          <div class="text-left mb-10">
-            <p class="overline mb-3">Managed by</p>
-            <div class="accent-line"></div>
-          </div>
-          <div class="team-wrapper" style="margin: 0;">
-            <div class="team-card card">
-              <div class="team-card__img">
-                <img src="/team/pablo.jpg" alt="Pedro Pablo" loading="lazy" />
-                <div class="team-card__img-gradient"></div>
-              </div>
-              <div class="team-card__body text-center">
-                <h3 style="font-size:1.6rem;">Pedro Pablo</h3>
-                <p class="overline" style="font-size:0.55rem; color:var(--gold); margin-top:0.4rem;">
-                  Founder & Director of Experiences
-                </p>
-                <p class="text-xs mt-4" style="line-height:1.7; color:var(--fg-muted);">
-                  Specialist in Real Estate and VIP Experiences<br />in Medellin, Colombia
-                </p>
-                <div class="team-card__links justify-center mt-6">
-                  <a href="https://www.instagram.com/ppsg_777/" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--sm">
-                    Instagram
-                  </a>
-                  <a href="https://www.airbnb.com.co/users/show/427110649" target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--sm">
-                    Airbnb
-                  </a>
-                </div>
+      <!-- Right: Team -->
+      <div class="team-block reveal">
+        <div class="text-left mb-10">
+          <p class="overline mb-3">Managed by</p>
+          <div class="accent-line"></div>
+        </div>
+        <div class="team-wrapper" style="margin: 0;">
+          <div class="team-card card">
+            <div class="team-card__img">
+              <img src="/team/pablo.jpg" alt="Pedro Pablo" loading="lazy" />
+              <div class="team-card__img-gradient"></div>
+            </div>
+            <div class="team-card__body text-center">
+              <h3 style="font-size:1.6rem;">Pedro Pablo</h3>
+              <p
+                class="overline"
+                style="font-size:0.55rem; color:var(--gold); margin-top:0.4rem;"
+              >
+                Founder & Director of Experiences
+              </p>
+              <p
+                class="text-xs mt-4"
+                style="line-height:1.7; color:var(--fg-muted);"
+              >
+                Specialist in Real Estate and VIP Experiences<br />in Medellin,
+                Colombia
+              </p>
+              <div class="team-card__links justify-center mt-6">
+                <a
+                  href="https://www.instagram.com/ppsg_777/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--outline btn--sm"
+                >
+                  Instagram
+                </a>
+                <a
+                  href="https://www.airbnb.com.co/users/show/427110649"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--outline btn--sm"
+                >
+                  Airbnb
+                </a>
               </div>
             </div>
           </div>
         </div>
-
-      </div>
-
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ═══ WEDDINGS & EVENTS ═════════════════════════ -->
-  <section class="section">
-    <div class="container wedding-grid">
-      <div class="wedding-text reveal">
-        <p class="overline">Weddings & Events · Bachelor Parties</p>
-        <h2 class="mt-4">Exclusivity for Weddings and more</h2>
-        <div class="accent-line"></div>
+<!-- ═══ WEDDINGS & EVENTS ═════════════════════════ -->
+<section class="section">
+  <div class="container wedding-grid">
+    <div class="wedding-text reveal">
+      <p class="overline">Weddings & Events · Bachelor Parties</p>
+      <h2 class="mt-4">Exclusivity for Weddings and more</h2>
+      <div class="accent-line"></div>
 
-        <p class="text-sm leading-loose mb-4">
-          Is your wedding coming up? Don't settle for less! At Luxury Travel Home we offer you exclusive
-          experiences that go beyond the ordinary. Enjoy an unforgettable getaway with your partner,
-          full of pleasures and moments that will remain engraved in your memory forever.
+      <p class="text-sm leading-loose mb-4">
+        Is your wedding coming up? Don't settle for less! At Luxury Travel Home
+        we offer you exclusive experiences that go beyond the ordinary. Enjoy an
+        unforgettable getaway with your partner, full of pleasures and moments
+        that will remain engraved in your memory forever.
+      </p>
+      <p class="text-sm leading-loose mb-6">
+        Forget the limitations and immerse yourself in a world of luxury and
+        satisfaction.
+      </p>
+
+      <div class="border-top pt-6">
+        <p class="text-sm font-semibold mb-4" style="color:var(--fg);">
+          Ready to book?
         </p>
-        <p class="text-sm leading-loose mb-6">
-          Forget the limitations and immerse yourself in a world of luxury and satisfaction.
-        </p>
-
-        <div class="border-top pt-6">
-          <p class="text-sm font-semibold mb-4" style="color:var(--fg);">Ready to book?</p>
-          <ul class="dash-list">
-            {WEDDING_STEPS.map((item) => (
+        <ul class="dash-list">
+          {
+            WEDDING_STEPS.map((item) => (
               <li class="dash-item">
-                <span class="dash-line"></span>
+                <span class="dash-line" />
                 <span>
-                  <strong class="font-medium" style="color:var(--fg);">{item.title}</strong>{" "}
+                  <strong class="font-medium" style="color:var(--fg);">
+                    {item.title}
+                  </strong>{" "}
                   {item.body}
                 </span>
               </li>
-            ))}
-          </ul>
-        </div>
-
-        <div class="wedding-cta">
-          <a
-            href="https://wa.me/573217927739?text=Hello,%20I%20want%20to%20book%20for%20weddings%20or%20events"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn--gold"
-          >
-            Book here
-          </a>
-          <span class="overline" style="font-size:0.55rem;">Bachelor party</span>
-        </div>
+            ))
+          }
+        </ul>
       </div>
 
-      <div class="wedding-image reveal">
-        <div class="wedding-image__wrap">
-          <img src="/services/despedida-soltera.png" alt="Luxury weddings and events" loading="lazy" />
-        </div>
+      <div class="wedding-cta">
+        <a
+          href="https://wa.me/573217927739?text=Hello,%20I%20want%20to%20book%20for%20weddings%20or%20events"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn--gold"
+        >
+          Book here
+        </a>
+        <span class="overline" style="font-size:0.55rem;">Bachelor party</span>
       </div>
     </div>
-  </section>
 
-  <!-- ═══ PAYMENT METHODS ═══════════════════════════ -->
-  <section class="section section--sm section--alt">
-    <div class="container text-center">
-      <div class="reveal">
-        <p class="overline mb-3">Payment Methods</p>
-        <div class="accent-line accent-line--center"></div>
-        <p class="text-sm leading-relaxed max-w-xl mx-auto mt-2">
-          We accept major national and international payment methods
-          so your booking is simple and secure.
-        </p>
-      </div>
-
-      <div class="pay-grid reveal">
-        <div class="pay-logo" title="Bold"><img src="https://datafonos.bold.co/wp-content/uploads/2022/12/Logo-Bold-Principal.png" alt="Bold" loading="lazy" /></div>
-        <div class="pay-logo" title="Bancolombia"><img src="https://vectorseek.com/wp-content/uploads/2023/09/Bancolombia-Logo-Vector.svg-.png" alt="Bancolombia" loading="lazy" /></div>
-        <div class="pay-logo" title="Bitcoin"><img src="/icons/bitcoin.svg" alt="Bitcoin" loading="lazy" /></div>
-        <div class="pay-logo" title="Davivienda"><img src="/icons/davibank.svg" alt="Davivienda" loading="lazy" /></div>
-        <div class="pay-logo" title="Nequi"><img src="/icons/nequi.svg" alt="Nequi" loading="lazy" /></div>
-        <div class="pay-logo" title="PayPal"><img src="/icons/paypal.svg" alt="PayPal" loading="lazy" /></div>
-        <div class="pay-logo" title="Visa"><img src="/icons/visa.svg" alt="Visa" loading="lazy" /></div>
-        <div class="pay-logo" title="Western Union"><img src="/icons/wester.svg" alt="Western Union" loading="lazy" /></div>
-      </div>
-
-      <div class="reveal">
-        <a href="https://wa.me/573217927739?text=Hello,%20I%20would%20like%20more%20information%20about%20payment%20methods" target="_blank" rel="noopener noreferrer" class="btn btn--outline">Ask about payment methods</a>
+    <div class="wedding-image reveal">
+      <div class="wedding-image__wrap">
+        <img
+          src="/services/despedida-soltera.png"
+          alt="Luxury weddings and events"
+          loading="lazy"
+        />
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <Footer lang="en" />
-</Layout>
+<!-- ═══ PAYMENT METHODS ═══════════════════════════ -->
+<section class="section section--sm section--alt">
+  <div class="container text-center">
+    <div class="reveal">
+      <p class="overline mb-3">Payment Methods</p>
+      <div class="accent-line accent-line--center"></div>
+      <p class="text-sm leading-relaxed max-w-xl mx-auto mt-2">
+        We accept major national and international payment methods so your
+        booking is simple and secure.
+      </p>
+    </div>
+
+    <div class="pay-grid reveal">
+      <div class="pay-logo" title="Bold">
+        <img
+          src="https://datafonos.bold.co/wp-content/uploads/2022/12/Logo-Bold-Principal.png"
+          alt="Bold"
+          loading="lazy"
+        />
+      </div>
+      <div class="pay-logo" title="Bancolombia">
+        <img
+          src="https://vectorseek.com/wp-content/uploads/2023/09/Bancolombia-Logo-Vector.svg-.png"
+          alt="Bancolombia"
+          loading="lazy"
+        />
+      </div>
+      <div class="pay-logo" title="Bitcoin">
+        <img src="/icons/bitcoin.svg" alt="Bitcoin" loading="lazy" />
+      </div>
+      <div class="pay-logo" title="Davivienda">
+        <img src="/icons/davibank.svg" alt="Davivienda" loading="lazy" />
+      </div>
+      <div class="pay-logo" title="Nequi">
+        <img src="/icons/nequi.svg" alt="Nequi" loading="lazy" />
+      </div>
+      <div class="pay-logo" title="PayPal">
+        <img src="/icons/paypal.svg" alt="PayPal" loading="lazy" />
+      </div>
+      <div class="pay-logo" title="Visa">
+        <img src="/icons/visa.svg" alt="Visa" loading="lazy" />
+      </div>
+      <div class="pay-logo" title="Western Union">
+        <img src="/icons/wester.svg" alt="Western Union" loading="lazy" />
+      </div>
+    </div>
+
+    <div class="reveal">
+      <a
+        href="https://wa.me/573217927739?text=Hello,%20I%20would%20like%20more%20information%20about%20payment%20methods"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn--outline">Ask about payment methods</a
+      >
+    </div>
+  </div>
+</section>
+
+<Footer lang="en" />
 
 <style>
   /* ═══ HERO ═══════════════════════════════════════════ */
-  .hero { position: relative; isolation: isolate; display: flex; align-items: center; justify-content: center; min-height: 100vh; overflow: hidden; padding-top: 5rem; }
-  .hero__bg { position: absolute; inset: 0; z-index: -2; }
-  .hero__bg img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
-  .hero__overlay { position: absolute; inset: 0; z-index: -1; background: linear-gradient(160deg, rgba(0,0,0,0.68) 0%, rgba(5,5,5,0.85) 100%); }
-  .hero__content { text-align: center; padding-block: 4rem; }
-  .hero__subtitle { max-width: 36rem; margin-inline: auto; font-size: 0.95rem; line-height: 2; color: var(--fg-muted); }
-  .hero__scroll { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; opacity: 0.45; }
-  .hero__scroll-line { width: 1px; height: 2.5rem; background: var(--gold); animation: pulse 2s ease-in-out infinite; }
-  @keyframes pulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+  .hero {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow: hidden;
+    padding-top: 5rem;
+  }
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+  }
+  .hero__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+      160deg,
+      rgba(0, 0, 0, 0.68) 0%,
+      rgba(5, 5, 5, 0.85) 100%
+    );
+  }
+  .hero__content {
+    text-align: center;
+    padding-block: 4rem;
+  }
+  .hero__subtitle {
+    max-width: 36rem;
+    margin-inline: auto;
+    font-size: 0.95rem;
+    line-height: 2;
+    color: var(--fg-muted);
+  }
+  .hero__scroll {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0.45;
+  }
+  .hero__scroll-line {
+    width: 1px;
+    height: 2.5rem;
+    background: var(--gold);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
 
   /* ═══ WHY US GRID ════════════════════════════════════ */
-  .why-grid { display: grid; gap: 3rem; }
-  @media (min-width: 1024px) { .why-grid { grid-template-columns: 1fr 1fr; gap: 4rem; } }
-  .benefit-list { list-style: none; display: flex; flex-direction: column; gap: 1.5rem; }
-  .benefit-item { display: flex; align-items: flex-start; gap: 1rem; }
-  .benefit-diamond { flex-shrink: 0; margin-top: 0.2rem; font-size: 0.7rem; color: var(--gold); font-family: var(--font-body); letter-spacing: 0; }
-  .dash-list { list-style: none; display: flex; flex-direction: column; gap: 1.25rem; }
-  .dash-item { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.875rem; color: var(--fg-muted); line-height: 1.85; }
-  .dash-line { flex-shrink: 0; width: 1rem; height: 1px; background: var(--gold); margin-top: 0.7rem; }
-  .why-image { display: none; }
-  @media (min-width: 1024px) { .why-image { display: block; position: sticky; top: 6rem; } }
-  .why-image__wrap { border-radius: var(--radius-xl); overflow: hidden; border: 1px solid var(--border); min-height: 600px; position: relative; }
-  .why-image__wrap img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+  .why-grid {
+    display: grid;
+    gap: 3rem;
+  }
+  @media (min-width: 1024px) {
+    .why-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+  }
+  .benefit-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .benefit-diamond {
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+    font-size: 0.7rem;
+    color: var(--gold);
+    font-family: var(--font-body);
+    letter-spacing: 0;
+  }
+  .dash-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .dash-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    color: var(--fg-muted);
+    line-height: 1.85;
+  }
+  .dash-line {
+    flex-shrink: 0;
+    width: 1rem;
+    height: 1px;
+    background: var(--gold);
+    margin-top: 0.7rem;
+  }
+  .why-image {
+    display: none;
+  }
+  @media (min-width: 1024px) {
+    .why-image {
+      display: block;
+      position: sticky;
+      top: 6rem;
+    }
+  }
+  .why-image__wrap {
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    min-height: 600px;
+    position: relative;
+  }
+  .why-image__wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    inset: 0;
+  }
 
   /* ═══ EDITORIAL SECTION ═══════════════════════════ */
-  .editorial-grid { display: grid; gap: 4rem; align-items: center; }
-  @media (min-width: 1024px) { .editorial-grid { grid-template-columns: 1fr 1.2fr; gap: 5rem; } }
+  .editorial-grid {
+    display: grid;
+    gap: 4rem;
+    align-items: center;
+  }
+  @media (min-width: 1024px) {
+    .editorial-grid {
+      grid-template-columns: 1fr 1.2fr;
+      gap: 5rem;
+    }
+  }
   .editorial-box {
-    background: linear-gradient(145deg, rgba(20,20,20,0.95), rgba(5,5,5,0.95));
+    background: linear-gradient(
+      145deg,
+      rgba(20, 20, 20, 0.95),
+      rgba(5, 5, 5, 0.95)
+    );
     border: 1px solid var(--border-gold);
     border-radius: var(--radius-lg);
     padding: 3.5rem 2.5rem;
     position: relative;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
     overflow: hidden;
   }
   .editorial-box::before {
-    content: '';
+    content: "";
     position: absolute;
-    top: -10%; left: -10%; right: -10%; bottom: -10%;
-    background: radial-gradient(circle at top right, rgba(201, 168, 76, 0.08), transparent 60%);
+    top: -10%;
+    left: -10%;
+    right: -10%;
+    bottom: -10%;
+    background: radial-gradient(
+      circle at top right,
+      rgba(201, 168, 76, 0.08),
+      transparent 60%
+    );
     pointer-events: none;
   }
-  .editorial-text { font-size: 1.05rem; line-height: 1.9; color: var(--fg-muted); }
-  .editorial-dash .dash-line { background: var(--border-gold); width: 1.5rem; }
+  .editorial-text {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: var(--fg-muted);
+  }
+  .editorial-dash .dash-line {
+    background: var(--border-gold);
+    width: 1.5rem;
+  }
 
   /* ═══ REASONS & TEAM SECTION ═══════════════════════════════ */
-  .reasons-section { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-  .reasons-team-grid { display: grid; gap: 4rem; }
-  @media (min-width: 768px) { .reasons-team-grid { grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; } }
-  @media (min-width: 1024px) { .reasons-team-grid { grid-template-columns: 1.8fr 1fr; gap: 4rem; } }
-  
-  .reason-card { text-align: center; }
-  .reason-card__body { padding: 2rem 1.5rem; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
-  .reason-card__line { display: block; width: 2rem; height: 1px; background: var(--gold); }
+  .reasons-section {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .reasons-team-grid {
+    display: grid;
+    gap: 4rem;
+  }
+  @media (min-width: 768px) {
+    .reasons-team-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+  }
+  @media (min-width: 1024px) {
+    .reasons-team-grid {
+      grid-template-columns: 1.8fr 1fr;
+      gap: 4rem;
+    }
+  }
+
+  .reason-card {
+    text-align: center;
+  }
+  .reason-card__body {
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .reason-card__line {
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: var(--gold);
+  }
 
   /* ═══ TEAM ══════════════════════════════════════════ */
-  .team-wrapper { display: flex; justify-content: center; }
-  .team-card { max-width: 20rem; width: 100%; text-align: center; }
-  .team-card__img { position: relative; height: 20rem; overflow: hidden; }
-  .team-card__img img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
-  .team-card__img-gradient { position: absolute; inset: 0; background: linear-gradient(to top, rgba(5,5,5,0.95) 0%, transparent 55%); }
-  .team-card__body { padding: 1.75rem 2rem 2rem; }
-  .team-card__links { display: flex; justify-content: center; gap: 0.75rem; margin-top: 1.25rem; }
+  .team-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+  .team-card {
+    max-width: 20rem;
+    width: 100%;
+    text-align: center;
+  }
+  .team-card__img {
+    position: relative;
+    height: 20rem;
+    overflow: hidden;
+  }
+  .team-card__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+  .team-card__img-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(5, 5, 5, 0.95) 0%,
+      transparent 55%
+    );
+  }
+  .team-card__body {
+    padding: 1.75rem 2rem 2rem;
+  }
+  .team-card__links {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+  }
 
   /* ═══ SERVICES CAROUSEL & CARDS ═════════════════════════════════ */
   .services-carousel {
@@ -450,9 +808,17 @@ const WEDDING_STEPS = [
     scrollbar-width: thin;
     scrollbar-color: var(--gold-dim) var(--bg-deepest);
   }
-  .services-carousel::-webkit-scrollbar { height: 6px; }
-  .services-carousel::-webkit-scrollbar-track { background: var(--bg-deepest); border-radius: 4px; }
-  .services-carousel::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 4px; }
+  .services-carousel::-webkit-scrollbar {
+    height: 6px;
+  }
+  .services-carousel::-webkit-scrollbar-track {
+    background: var(--bg-deepest);
+    border-radius: 4px;
+  }
+  .services-carousel::-webkit-scrollbar-thumb {
+    background: var(--gold-dim);
+    border-radius: 4px;
+  }
 
   .service-card {
     flex: 0 0 85%;
@@ -460,11 +826,21 @@ const WEDDING_STEPS = [
     min-width: 280px;
     display: block;
   }
-  @media (min-width: 640px) { .service-card { flex: 0 0 45%; } }
-  @media (min-width: 1024px) { .service-card { flex: 0 0 calc(25% - 1.125rem); } }
+  @media (min-width: 640px) {
+    .service-card {
+      flex: 0 0 45%;
+    }
+  }
+  @media (min-width: 1024px) {
+    .service-card {
+      flex: 0 0 calc(25% - 1.125rem);
+    }
+  }
 
-  .service-card .card__img { aspect-ratio: 3 / 4; }
-  
+  .service-card .card__img {
+    aspect-ratio: 3 / 4;
+  }
+
   .service-card__label {
     position: absolute;
     bottom: 1.5rem;
@@ -474,16 +850,82 @@ const WEDDING_STEPS = [
   }
 
   /* ═══ WEDDING SECTION ═══════════════════════════════ */
-  .wedding-grid { display: grid; gap: 3rem; align-items: center; }
-  @media (min-width: 1024px) { .wedding-grid { grid-template-columns: 1fr 1fr; gap: 4rem; } }
-  .wedding-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-top: 1.5rem; }
-  .wedding-image__wrap { border-radius: var(--radius-xl); overflow: hidden; border: 1px solid var(--border); min-height: 32rem; position: relative; }
-  .wedding-image__wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center; position: absolute; inset: 0; }
+  .wedding-grid {
+    display: grid;
+    gap: 3rem;
+    align-items: center;
+  }
+  @media (min-width: 1024px) {
+    .wedding-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+  }
+  .wedding-cta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .wedding-image__wrap {
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    min-height: 32rem;
+    position: relative;
+  }
+  .wedding-image__wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    inset: 0;
+  }
 
   /* ═══ PAYMENT LOGOS ═══════════════════════════════ */
-  .pay-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1rem; margin-block:2.5rem; max-width:720px; margin-inline:auto; }
-  @media (min-width: 540px) { .pay-grid { grid-template-columns: repeat(4, 1fr); } }
-  .pay-logo { background-color:transparent; border:none; overflow:visible; transition:transform 0.35s var(--ease-out), filter 0.35s ease; filter:grayscale(0.8) opacity(0.6) drop-shadow(0 0 8px rgba(255,255,255,0.1)); cursor:default; display:flex; align-items:center; justify-content:center; padding:0; height:3.5rem; }
-  .pay-logo:hover { filter:grayscale(0) opacity(1) drop-shadow(0 0 16px rgba(212, 175, 55, 0.5)); transform:translateY(-3px) scale(1.05); }
-  .pay-logo svg, .pay-logo img { display:block; max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; }
+  .pay-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-block: 2.5rem;
+    max-width: 720px;
+    margin-inline: auto;
+  }
+  @media (min-width: 540px) {
+    .pay-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  .pay-logo {
+    background-color: transparent;
+    border: none;
+    overflow: visible;
+    transition:
+      transform 0.35s var(--ease-out),
+      filter 0.35s ease;
+    filter: grayscale(0.8) opacity(0.6)
+      drop-shadow(0 0 8px rgba(255, 255, 255, 0.1));
+    cursor: default;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    height: 3.5rem;
+  }
+  .pay-logo:hover {
+    filter: grayscale(0) opacity(1)
+      drop-shadow(0 0 16px rgba(212, 175, 55, 0.5));
+    transform: translateY(-3px) scale(1.05);
+  }
+  .pay-logo svg,
+  .pay-logo img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
 </style>
