@@ -8,7 +8,7 @@ import propiedades from '../../data/propiedades.json';
 const mansionImages = propiedades.map(p => p.thumbnail).filter(Boolean).slice(0, 8);
 
 const SERVICES = [
-  { href: "/en/mansiones", img: "/services/mansiones-elite.png", sublabel: "Exclusive properties", label: "Luxury Mansions", id: "mansiones-card" },
+  { href: "/en/mansiones", img: mansionImages[0], sublabel: "Exclusive properties", label: "Luxury Mansions", id: "mansiones-card" },
   { href: "/en/vehiculos", img: "/services/carros-de-lujo.png", sublabel: "VIP Transport", label: "High-end Vehicles" },
   { href: "/en/yates", img: "/services/yate.png", sublabel: "Premium Service", label: "Yachts" },
   { href: "/en/experiencias", img: "/services/tour.png", sublabel: "Tours and events", label: "Experiences" },
