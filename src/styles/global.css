@@ -1,9 +1,7 @@
 /* ═══════════════════════════════════════════════════════
-   LUXURY TRAVEL HOME — Astro Design System
+   LUXURY TRAVEL HOME - Astro Design System
    Premium dark aesthetic with gold accents
 ═══════════════════════════════════════════════════════ */
-
-/* ── Google Fonts (Moved to HTML head to prevent render-blocking) ── */
 
 /* ── Tokens ────────────────────────────────────────── */
 :root {
@@ -170,7 +168,7 @@ p { line-height: 1.8; color: var(--fg-muted); }
 
 .btn--sm { padding: 0.5rem 1.1rem; font-size: 0.62rem; }
 
-/* WhatsApp icon-pill variant — used in mobile menu */
+/* WhatsApp icon-pill variant - used in mobile menu */
 .btn--wa-pill {
   background: transparent;
   border: 1px solid rgba(37, 211, 102, 0.4);
